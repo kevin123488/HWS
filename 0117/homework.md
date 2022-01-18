@@ -5,6 +5,14 @@
 
 **ans for 1:** True, False, None, and, as, assert, break, class, continue, def, del, elif, else, except, finally, for, from, global, if, import, in, is, lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield
 
+```python
+import keyword
+print(keyword.kwlist)
+#위의 코드를 이용하여 조회 가능
+```
+
+
+
 
 
 2. **실수 비교**
@@ -19,6 +27,11 @@ num2 = 0.3
 
 ```python
 abs(num1 - num2) <= 1e-9
+```
+
+```python
+import math
+math.isclose(num1, num2)
 ```
 
 
@@ -42,9 +55,20 @@ name = '철수'
 **ans for 4:**
 
 ```python
+# f string 방법
 name = '철수'
 print(f'안녕, {name}야')
 ```
+
+```python
+# 포매팅 방법
+name = 철수
+name2 = 유리
+print('안녕, {}야'.format(name))
+#print('안녕, {}야, {}야'.format(name, name2)) -> 앞 {}엔 name, 뒷 {}엔 name2
+```
+
+
 
 
 
@@ -62,6 +86,14 @@ int('3.5') # (5)
 ```
 
 **ans for 5:** (5). 3.5는 float.
+
+```python
+#str -> 문자열로 형 변환
+#int -> 정수로 형 변환
+#bool -> True, False로 반환
+```
+
+
 
 
 
@@ -85,6 +117,10 @@ sagak_h = ga_ro * m
 print(sagak_h)
 ```
 
+```python
+print(('*'*n + '\n')*m)
+```
+
 
 
 
@@ -103,6 +139,11 @@ print(sagak_h)
 
 ```python
 print('''\"파일은 c:\\Windows\\Users\\내문서\\Python에 저장이 되었습니다.\"\n나는 생각했다. \'cd를 써서 git bash로 들어가 봐야지.\'''')
+```
+
+```python
+print('\"파일은 c:\\Windows\\Users\\내문서\\Python에 저장이 되었습니다.\"\n
+나는 생각했다. \'cd를 써서 git bash로 들어가 봐야지.\'')
 ```
 
 
@@ -125,9 +166,18 @@ a = int(input())
 b = int(input())
 c = int(input())
 
-ans1 = (-b + (b ** 2 - 4 * a * c) ** 0.5) / (2 * a)
-ans2 = (-b - (b ** 2 - 4 * a * c) ** 0.5) / (2 * a)
+ans1 = (-b + (b**2 - 4*a*c)**0.5) / (2*a)
+ans2 = (-b - (b**2 - 4*a*c)**0.5) / (2*a)
 
 print(ans1, ans2)
+```
+
+```python
+# 1을 값으로 갖는 튜플 a를 생성하시오
+a = (1,) #괄호인지 자료형 튜플인지를 구분하기 위해, `,`를 넣음
+
+# 리스트와 set은 그냥 ㄱ
+b = [1]
+c = {1}
 ```
 

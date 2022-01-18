@@ -6,8 +6,8 @@
 **ans for 1:**
 
 ```python
-변경 가능(mutable): string, list, set, dictionary
-변경 불가능(immutable): tuple, range
+변경 가능(mutable): list, set, dictionary
+변경 불가능(immutable): string, tuple, range
 ```
 
 
@@ -32,6 +32,12 @@ for i in a:
 print(l_ist)
 ```
 
+```python
+# 교수님 답안
+a = list(range(1, 51))
+b = a[0:-1:2] # b = a[::2] 또한 가능
+```
+
 
 
 
@@ -45,6 +51,10 @@ print(l_ist)
 
 ```python
 class_python1 = {'박정현': 26, '배준식': 26}
+```
+
+```python
+student = {'박정현': 26, '싸피': 7}
 ```
 
 
@@ -68,6 +78,20 @@ m = 9
 ga_ro = '*' * n
 for i in range(m):
 	print(ga_ro)
+```
+
+```python
+# 교수님 답안
+for height in range(m):
+    print('*'*n)
+    
+# 반복문 중첩
+for height in range(m):
+    for width in range(n):
+        print('*', end='') #print함수가 가진 줄바꿈을 실행되지 않도록 설정
+    print()
+#m부터 실행하는 이유는?
+#-> 위와 같은 방식으로 작성된 코드는 n에 대한 for문이 한 싸이클 다 돈 후 m에 대한 두번째 사이클이 시작되므로, 가로를 먼저 돌리고 세로로 넘어가 줄을 바꿔주는 형식으로 진행됨.
 ```
 
 
@@ -112,5 +136,20 @@ for i in scores:
 
 ave = ans / len(scores)
 print(ave)
+```
+
+```python
+# 교수님 답변
+total = 0
+count = 0
+for score in scores:
+    total += score
+    count += 1
+    
+ave = total / count
+print(ave)
+
+# 또는
+print(sum(scores)/len(scores))
 ```
 

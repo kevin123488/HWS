@@ -41,6 +41,12 @@ result = get_secret_word([83, 115, 65, 102, 89])
 print(result)
 ```
 
+```python
+# 교수님 답변
+def get_secret_word(numbers):
+    # 다시 작성해본 코드와 거의 같음
+```
+
 
 
 
@@ -65,6 +71,19 @@ def get_secret_number(args):
 
 print(get_secret_number('tom'))
 ```
+
+```python
+# 교수님 답변
+def get_secret_number(args):
+    result = 0
+    for i in args:
+        result += ord(i)
+    return result
+
+print(get_secret_number('tom'))
+```
+
+
 
 
 
@@ -98,5 +117,26 @@ def get_strong_word(str1, str2):
 
 result = get_strong_word('z', 'a')
 print(result)
+```
+
+```python
+# 교수님 답변
+def get_strong_word(word1, word2):
+    #각 문자열들 아스키 숫자로 변환 후 더할 값
+    word1_result = 0
+    word2_result = 0
+    for i in word1:
+        word1_result += ord(i)
+    for k in word2:
+        word2_result += ord(k)
+    
+    if word1_result > word2_result:
+        return word1
+    else:
+        return word2
+result = get_strong_word('z', 'a')
+print(result)
+
+# 값이 같을 때, 비교 불가. 문제 오류임
 ```
 

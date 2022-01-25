@@ -9,6 +9,18 @@
 print(), sum(), abs(), len(), int(), float() . . .
 ```
 
+```python
+# 교수님 답변
+print()
+sum()
+min()
+max()
+len()
+.
+.
+.
+```
+
 
 
 
@@ -29,6 +41,11 @@ def get_middle_char(string):
         return string[len(string)//2]
     else:
         return string[len(string)//2-1], string[len(string)//2]
+```
+
+```python
+# 교수님 답변
+코드 가독성 생각하기! 변수 하나 더 설정하면 훨씬 가독성 좋아짐
 ```
 
 
@@ -98,6 +115,18 @@ ssafy(name = '마바')
 #6.
 ssafy(name = '자차', location = '부산')
 # 위의 경우 둘 다 keyword argument라 잘 돌아감. 옳은 코드
+
+#7.
+ssafy('영희', name = '철수')
+# 안돌아감. 
+```
+
+```python
+# 교수님 답변
+1->location은 디폴트값이 정해져 있으므로 굳이 값 지정 안해줘도 돌아감.
+2->각각 키워드인자로 지정되어있으므로, 잘 찾아 들어감.
+3->위치 인자 '영희'가 순서대로 name에 들어가고, 뒤에 키워드인자 loca~ 가 들어가므로, 잘 돌아감.
+4->키워드 인자를 사용한 뒤에는 위치 인자를 사용할 수 없다.
 ```
 
 
@@ -121,7 +150,14 @@ result = my_func(3, 7)
 None
 ```
 
+```python
+result에 함수의 값을 담고 싶으면, 함수에서 return을 해주어 값을 '할당'해주는 과정을 거쳐야 한다.
+위의 함수는 'c = a + b'라는 값을 'return'하지 않았기 때문에, 해당하는 값이 함수에 할당되지 않았다.
+```
 
+**함수의 숙명->return**
+
+**return한 함수는 집에 돌아감. 끝남. 함수 끝. 해당 함수에서 그 밑부분 코드는 실행 ㄴ**
 
 
 
@@ -143,6 +179,21 @@ def my_avg(*num):
         su_m += i
     return su_m/len(num)
 
+result = my_avg(77, 83, 95, 80, 70)
+print(result)
+```
+
+```python
+# 교수님 답변
+# 가변인자 리스트? 한번에 여러개의 변수를 받을 수 있음
+
+def my_avg(*numbers):
+    length = 0
+    count = 0
+    for i in numbers:
+        length += 1
+        count += i
+    return count // length
 result = my_avg(77, 83, 95, 80, 70)
 print(result)
 ```

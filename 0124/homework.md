@@ -19,6 +19,22 @@ result2 = count_vowels('banana')
 print(result1, result2)
 ```
 
+```python
+# 교수님 답안
+def count_vowels():
+    # 모음이 무엇인지 파악
+    vowels = 'aeiou'
+    # 최종 반환할 값
+    result = 0
+    # word 파라미터에 모음이 몇개인지 파악해야 함
+    # count 메서드 -> count(x) x의 개수를 세어준다
+    # 반복문은?
+    for vowel in vowels:
+        # 특정 모음 'a'.. 등이 word에 몇 개 있는지 세기 ㄱ
+        result += word.count(vowel)
+    return result
+```
+
 
 
 
@@ -28,7 +44,7 @@ print(result1, result2)
 **다음 중, 문자열(string)를 조작하는 방법으로 옳지 않은 것을 고르시오.**
 
 ```python
-(1) .find(x)는 x의 첫번째 위치를 반환한다. 없으면 -1을 반환한다.
+(1) .find(x)는 x의 첫번째 위치를 반환한다. 없으면 -1을 반환한다. # .index(x)는 없으면 오류 반환
 (2) .split([chars])은 특정 문자를 지정하면 문자열을 특정 문자를
 기준으로 나누어 list로 반환한다. 특정 문자를 지정하지 않으면
 공백을 기준으로 나눈다.
@@ -69,5 +85,32 @@ def only_square_area(a, b):
 
 result = only_square_area([32, 55, 63], [13, 32, 40, 55])
 print(result)
+```
+
+```python
+# 교수님 답안
+def only_square_area(widths, heights):
+    result = []
+    for width in widths:
+        for height in heights:
+            if width == height:
+                result.append(width * height)
+    return result 
+
+# 답안 2
+# 리스트 컴프리헨션
+# 리스트에 최종적으로 추가할 값 + 반복문 순서대로
+result = [width * height for width in widths for height in heights if width == height]
+
+# 답안 3
+# 두 리스트를 비교해서 중복되는 값만 찾으면 됨
+value = set(widths) & set(heights)
+result = []
+for val in value:
+    result.append(val**2)
+return result
+
+#
+return [val**2 for val in set(widths) & set(heights)]
 ```
 

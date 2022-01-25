@@ -23,6 +23,7 @@ def get_dict_avg(args):
         su_m += args[i]
         count += 1
     return su_m/count
+
 result = get_dict_avg({
     'python' : 80,
     'algorithm': 90,
@@ -31,6 +32,14 @@ result = get_dict_avg({
 })
 print(result)
 ```
+
+```python
+# 교수님 답변
+def get_dict_avg(scores):
+    return sum(scores.values()) / len(scores.keys())
+```
+
+
 
 
 
@@ -63,11 +72,35 @@ def count_blood(args):
         else:
             o_count += 1
     return dict(A = a_count, B = b_count, AB = ab_count, O = o_count)
+
 result = count_blood([
     'A', 'B', 'A', 'O', 'AB', 'AB',
     'O', 'A', 'B', 'O', 'B', 'AB',
 ])
 
 print(result)
+```
+
+```python
+# 교수님 답변
+def count_blood(blood):
+    # 안에 있는 각 값들에 해당하는
+    # 키를 가진 딕셔너리를 만들고
+    # 그 키에 해당하는 값들을 채워 나가야 한다
+    result = {}
+    # 전체 리스트 반복문 돌려서
+    for val in blood:
+        # 만약 result에 해당하는 키값이 있다면 +1
+        if result.get(val):
+            result[val] += 1
+        else:
+            result[val] = 1
+    return result
+
+# 2
+result = {}
+for key in blood:
+    result[key] = result.get(key, 0) + 1
+return result
 ```
 

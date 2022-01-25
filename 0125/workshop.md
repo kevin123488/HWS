@@ -10,6 +10,42 @@ duplicated_letters('apple') # => ['p']
 duplicated_letters('banana') # => ['a', 'n']
 ```
 
+**ans for 1:**
+
+```python
+def duplicated_letters(word):
+    
+    lis_t = []
+    ans = []
+    for i in range(len(word)):
+        if word[i] in lis_t:
+            if word[i] in ans:
+                pass
+            else:
+                ans += [word[i]]
+        else:
+            lis_t += [word[i]]
+    return ans
+print(duplicated_letters('apple'))
+print(duplicated_letters('banana'))
+```
+
+```python
+# 교수님 답안
+def duplicated_letters(word):
+    result = []
+    for char in word:
+        if word.count(char)
+    return result
+
+#2
+for char in word:
+    if word.count(char) >= 2:
+		if chat not in result:
+    result.append(char)
+return result
+```
+
 
 
 ### 소대소대
@@ -23,6 +59,46 @@ low_and_up('apple') # =>aPpLe
 low_and_up('banana')  # => bAnAnA
 ```
 
+**ans for 2:**
+
+```python
+def low_and_up(word):
+    ans = ''
+    for i in range(len(word)):
+        if i == 0:
+            ans += word[i].lower()
+        elif i % 2 == 1:
+            ans += word[i].upper()
+        else:
+            ans += word[i].lower()
+    return ans
+print(low_and_up('apple'))
+print(low_and_up('banana'))
+```
+
+```python
+# 교수님 답변
+def low_and_up(word):
+    result = ''
+    for idx in range(len(word)):
+        
+        result += word[idx]
+        
+#2
+for idx, char in enumerate(word):
+    if idx % 2 == 1:
+        result += char.upper()
+    else:
+        result += char.lower()
+return result
+
+#3
+result = [char.upper() if idx % 2 else char.lower() for idx, char in enumerate(word)]
+return ''.join(result) #-> '' 내의 구분자를 기준으로 나눈 후 문자열로 반환
+```
+
+
+
 
 
 ### 솔로 천국 만들기
@@ -32,5 +108,31 @@ low_and_up('banana')  # => bAnAnA
 ```python
 lonely([1, 1, 3, 3, 0, 1, 1]) # => [1, 3, 0, 1]
 lonely([4, 4, 4, 3, 3]) # => [4, 3]
+```
+
+**ans for 3:**
+
+```python
+def lonely(numbers):
+    for i in range(len(numbers)):
+        if i < len(numbers):
+            if numbers[i] == numbers[i + 1]:
+                numbers.pop(i)
+    return numbers
+result1 = lonely([1, 1, 3, 3, 0, 1, 1])
+result2 = lonely([4, 4, 4, 3, 3])
+print(result1) -> [1, 3, 0, 1]
+print(result2) -> [4, 4, 3] -> 오답
+# 수정
+```
+
+```python
+# 교수님 답변
+def lonely(numbers):
+    result = [numbers[0]]
+    for number in numbers:
+        if result[-1] != number:
+            result.append(number)
+    return result
 ```
 

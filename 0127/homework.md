@@ -31,6 +31,15 @@ print(ins.area())
 print(ins.circumference())
 ```
 
+```python
+# 교수님 답변
+circle = Circle(3, 2, 4)
+print(circle.area())
+print(circle.circumference())
+```
+
+
+
 
 
 ### Dog과 Bird는 Animal이다
@@ -60,6 +69,19 @@ bird.eat() # 구구! 먹는다!
 bird.fly() # 구구! 푸드덕!
 ```
 
+```python
+# 교수님 답변
+class Dog(Animal):
+    def walk(self):
+        print(f'{self.name}! 달린다!')
+    def bark(self):
+        print(f'{self.name}! 짖는다!')
+
+class Bird(Animal):
+    def fly(self):
+        print(f'{self.name}! 푸드덕!')
+```
+
 
 
 
@@ -83,5 +105,16 @@ IndexError = 범위를 벗어난 인덱스를 지정할 때 나오는 에러메�
 KeyError = 해당하는 key가 없을 때 나오는 에러메시지
 ModuleNotFoundError = 해당하는 모듈을 찾을 수 없을 때 나오는 에러메시지
 ImportError = 모듈의 경로가 잘못되어 정상적으로 import할 수 없을 때 나오는 에러메시지
+```
+
+```python
+# 교수님 답변
+ZeroDivisionError: 0으로 나누려 할 때
+NameError: 정의되지 않은 변수 이름 사용
+TypeError: 자료형에 대한 잘못된 사용 (ex:int([1, 2, 3]))
+IndexError: index 범위 초과해서 조회하고자 할 때
+KeyError: 딕셔너리에 없는 키를 조회하고자 할 때, 혹은 세트에 없는 값 삭제하거나 조회하고자 할 때
+ModuleNotFoundError: 모듈을 찾을 수 없을 때
+ImportError: 모듈은 있는데 모듈에 없는 변수, 클래스, 함수를 찾고자 할 때
 ```
 

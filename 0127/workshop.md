@@ -17,6 +17,11 @@ $ pip install faker
 faker를 설치하기 위한 명령어, cmd나 git bash에 입력해주면 된다.
 ```
 
+```python
+# 교수님 답변
+faker 설치 명령어. git bash(terminal)에서 실행하는 명령어
+```
+
 
 
 ### Basic Usages(https://github.com/joke2k/faker#basic-usage)
@@ -36,6 +41,15 @@ fake.name()				# 3 name()은 fake의 ____이다.
 2. Faker는 함수, fake는 변수이다
 3. name()은 fake의 메소드다
 ```
+
+```python
+# 교수님 답변
+1. Faker 클래스를 faker 패키지에서 불러온다
+2. Faker 클래스에서 fake 인스턴스 생성
+3. name은 fake의 메소드
+```
+
+
 
 
 
@@ -81,6 +95,15 @@ Faker는 다양한 언어의 Locale을 지원한다.
 (c): name
 ```
 
+```python
+# 교수님 답변
+(a): init
+(b): self
+(c): 매개변수 이름이라 아무거나 ㄱ
+```
+
+
+
 
 
 ### Seeding the Generator(https://github.com/joke2k/faker#seeding-the-generator)
@@ -123,6 +146,15 @@ print(fake2.name())	# 2
 (3): 인스턴스메소드
 ```
 
+```python
+# 교수님 답변
+(1): 
+(2):
+(3):
+```
+
+
+
 
 
 ### Seeding the Generator
@@ -145,5 +177,11 @@ seed()와 seed_instance()는 각각 어떠한 용도로 쓰일 수 있는지 작
 
 ```python
 아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ 모르갰다
+```
+
+```python
+# 교수님 답변
+seed: 클래스 메소드
+seed_instance: 인스턴스 메소드
 ```
 

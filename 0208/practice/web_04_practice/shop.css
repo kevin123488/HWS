@@ -1,1 +1,21 @@
 /* 아래에 코드를 작성하시오. */
+section {
+    height: 700px;
+    background-image: url('images/main.png');
+    background-size: cover;
+}
+
+article div img {
+    width: 200px;
+}
+
+nav {
+    height: 50px;
+}
+
+footer img {
+    width: 30px;
+    margin-top: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+}

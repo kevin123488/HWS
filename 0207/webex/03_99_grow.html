@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="03_99_grow.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+    </style>
+  </head>
+  <body>
+    <h3>flex-grow & order</h3>
+    <hr />
+    <div class="example_container">
+      <div class="example">
+        <p>1) grow</p>
+        <div class="flex_container flex_direction_row">
+          <div class="flex_item grow-1">1</div>
+          <div class="flex_item grow-2">2</div>
+          <div class="flex_item grow-3">3</div>
+        </div>
+        <p>1) order</p>
+        <div class="flex_container flex_direction_row">
+          <div class="flex_item order-2">
+            첫번째 <br> order-2
+          </div>
+          <div class="flex_item">
+            두번째 <br> order-1
+          </div>
+          <div class="flex_item order-n1">
+            세번째 <br> order-n1
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

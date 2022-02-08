@@ -46,12 +46,15 @@ align-items 속성의 4가지 값과 각각의 특징을 작성하시오.
 ```html
 align-items: center
 -> 요소들을 세로선 상의 중앙부에 위치시킴
+교차축의 중앙에 정렬
 
 align-items: flex-start
 -> 요소들을 세로선 상의 최상단에 위치시킴
+교차축 방향의 시작선에 정렬
 
 align-items: flex-end
 -> 요소들을 세로선 상의 최하단에 위치시킴
+교차축 방향의 끝에 정렬
 
 align-items: baseline
 -> 요소들을 baseline에 맞춰 정렬
@@ -60,6 +63,7 @@ align-items: baseline
 
 align-items: stretch
 -> 요소들을 컨테이너에 맞게 늘림
+부모 flex 컨테이너의 최대 높이로 설정
 ```
 
 
@@ -102,6 +106,8 @@ flex-flow 속성은 두가지 속성의 축약형이다. 올바르게 짝지어�
 (b): row
 ```
 
+*container또한 breakpoint를 설정할 수 있다.
+
 
 
 **6. Breakpoint prefix**
@@ -114,7 +120,8 @@ Bootstrap Grid System에서 요소의 크기를 지정하기 위해서는 상단
 **ans for 6:**
 
 ```html
-1) xs, sm, md, lg, xl, xxl
-2) 숫자, auto
+1) xs, sm, md, lg, xl, xxl -> 디바이스나 화면의 크기에 따라서 반응형으로 디자인 구현 가능
+
+2) 숫자(12이하의 정수) -> 공간을 12개로 나누어 해당 요소가 몇칸을 차지할 것인지를 정의
 ```
 

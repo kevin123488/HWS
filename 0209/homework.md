@@ -13,3 +13,9 @@ data[i]에서 max(list), list = [data[i-2], data[i-1], data[i+1], data[i+2]]의 
 시간이 없어서 그냥 max 썼다. 허허.. 일단 제출하고, 천천히 버블정렬로 최댓값을 구해봐야 겠다.
 
 ![image-20220210000122501](homework.assets/image-20220210000122501.png)
+
++
+
+max를 버블정렬을 이용해 구해보았다.
+
+![image-20220210003535094](homework.assets/image-20220210003535094.png)

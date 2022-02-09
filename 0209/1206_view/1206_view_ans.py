@@ -11,7 +11,11 @@ for tc in range(1, 11): # 10개의 test case 주어짐
         # 주변 4개의 건물중 가장 높다면? 반드시 조망권 O.
         # 조사중인 건물의 높이와 주변 4개중 가장 높은 건물의 높이를 빼주면? -> 해당 건물의 조망권 O인 세대의 수가 나옴.
         around = [data[i-2], data[i-1], data[i+1], data[i+2]]
-        if data[i] > data[i - 1] and data[i] > data[i - 2] and data[i] > data[i + 1] and data[i] > data[i + 2]:
-            ans += data[i] - max(around)
+        for k in range(len(around)-1):
+            if around[k] >= around[k+1]:
+                around[k+1]=around[k]
+        max_around = around[-1]
+        if data[i] > max_around:
+            ans += data[i] - max_around
 
     print(f'#{tc} {ans}')

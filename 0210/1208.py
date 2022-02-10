@@ -1,16 +1,25 @@
 import sys
 sys.stdin = open('1208_input.txt')
 
-# test case 10개
+# 버블정렬
+def bubble_sort(list):
+    for i in range(len(list)):
+        for j in range(len(list) - i - 1):
+            if list[j] > list[j + 1]:
+                list[j], list[j + 1] = list[j + 1], list[j]
+    return list
+
 for tc in range(1, 11):
-    # dump 횟수 입력받기
     dump = int(input())
-    box_height = list(map(int, input().split()))
+    width_list = list(map(int, input().split()))
 
-    # box_height의 최댓값과 최솟값을 인덱스로 뽑아온 후, 해당 값을 각각 -=1, +=1 해준다
-    a = max(box_height)
-    b = min(box_height)
-    c = box_height.index(a)
-    d = box_height.index(b)
+    for k in range(dump):
+        list_sorted = bubble_sort(width_list)
+        list_sorted[-1] -= 1
+        list_sorted[0] += 1
+        if bubble_sort(list_sorted)[-1] - bubble_sort(list_sorted)[0] == 0 or bubble_sort(list_sorted)[-1] - bubble_sort(list_sorted)[0] == 1:
+            print(f'#{tc} {list_sorted[-1] - list_sorted[0]}')
+        else:
+            pass
 
-    print(c, d)
+    print(f'#{tc} {list_sorted[-1] - list_sorted[0]}')

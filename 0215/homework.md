@@ -1,3 +1,10 @@
+## Homework
+
+**SWEA 1210번 문제**
+
+도착점과 연결되어있는 출발점의 좌표를 구하는 문제
+
+```python
 import sys
 sys.stdin = open('1210_input.txt')
 
@@ -26,3 +33,5 @@ for tc in range(1, 11):
     
     while end > 0: # 첫 줄에 도달할 때 까지
         if arr[end][finish_line_idx]
+```
+

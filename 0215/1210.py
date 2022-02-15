@@ -25,4 +25,20 @@ for tc in range(1, 11):
     # 지나온 길의 값은 0으로 바꿔주어야 되돌아가지 않음
     
     while end > 0: # 첫 줄에 도달할 때 까지
-        if arr[end][finish_line_idx]
+        if arr[end-1][finish_line_idx]==1 and arr[end][finish_line_idx-1]==1:
+            finish_line_idx += dj[0]
+            arr[end][finish_line_idx] = 0
+        elif arr[end-1][finish_line_idx]==1 and arr[end][finish_line_idx+1]==1:
+            finish_line_idx += dj[2]
+            arr[end][finish_line_idx] = 0
+        elif arr[end-1][finish_line_idx]==1:
+            end += di[1]
+            arr[end][finish_line_idx] = 0
+        elif arr[end][finish_line_idx-1]==1:
+            finish_line_idx += dj[0]
+            arr[end][finish_line_idx] = 0
+        elif arr[end][finish_line_idx+1]==1:
+            finish_line_idx += dj[2]
+            arr[end][finish_line_idx] = 0
+
+    print(f'#{tc} {finish_line_idx}')

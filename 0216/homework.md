@@ -89,3 +89,41 @@ for tc in range(1, T+1):
 **1부터 10까지 더하시오**라는 문제를 1+2+3+4+5+6+7+8+9+10으로 푼 느낌
 
 조금 더 고민해봐야겠다.
+
+
+
+**SWEA 1213번 문제**
+
+입력받은 문자열 속에서 특정 패턴의 개수를 세는 문제
+
+```python
+# 답안 코드
+
+import sys
+sys.stdin = open('1213_string_input.txt', encoding='UTF-8')
+
+# 전체 테스트케이스 수 10개
+for tc in range(1, 11):
+    T = int(input())
+    find = input()
+    string = input()
+
+    # string을 조회하며 find와 일치하는 부분이 얼마나 있는지 확인해야 함
+    # 이중포문으로 조회하자.
+    count = 0
+    for i in range(len(find)):
+        for j in range(len(string)): # find의 첫 글자에 대해 j를 쭉 순회. 만약 같으면? find의 길이만큼 슬라이싱한 후 비교. 같으면? count += 1
+            if find[i] == string[j]:
+                if j+len(find) <= len(string):
+                    if find == string[j:j+len(find)]:
+                        count += 1
+    print(f'#{tc} {count}')
+```
+
+로직)
+
+1. 찾아야 하는 요소(find)의 첫 글자에 대해 전체 문자열을 쭉 순회하며 일치하는지를 확인한다
+2. 확인한 결과 일치한다면? find요소의 길이만큼 전체 문자열의 '일치하는 시점'부터 슬라이싱하여 비교한다.
+3. 같으면? count += 1
+4. 끝
+5. 수업에서 배운 다른 조회법도 생각해봐야겠다.

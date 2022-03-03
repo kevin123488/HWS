@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Webex</title>
+{% endblock %}
+
+{% block content %}
+  {% include '_nav.html' %}
+  
+  <h1>WEBEX 복습 PAGE</h1>
+
+  <ol>
+    {% for food in foods %}
+      <li>{{ food }}</li>
+      <hr>
+    {% endfor %}
+  </ol>
+  {% lorem 1 b random %}
+
+{% endblock %}

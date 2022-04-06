@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Index page</h1>
+<a href="">CREATE</a>
+{% comment %} DTL {% endcomment %}
+{% for article in articles %}
+<!--html에서는 모든 문자열을 있는 그대로 보여줌. 그러므로 변수는 {{이 안에}}-->
+<p>{{article.pk}}</p>
+<p>{{article.title}}</p>
+{% endfor %}
+{% endblock content %}

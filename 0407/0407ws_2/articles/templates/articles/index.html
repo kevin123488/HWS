@@ -2,4 +2,13 @@
 {% block content %}
 <h1>Index page</h1>
 <a href="{% url 'articles:create' %}">CREATE</a>
+{% for article in articles %}
+<hr>
+<p>title: {{ article.title }}</p>
+<p>content: {{ article.content }}</p>
+<p>created: {{ article.created_at }}</p>
+<p>updated: {{ article.updated_at }}</p>
+<p><a href="{% url 'articles:detail' article.pk %}">자세히</a></p>
+<hr>
+{% endfor %}
 {% endblock content %}

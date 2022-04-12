@@ -40,6 +40,50 @@ logout 버튼을 누르면 어서오세요! user에서 어서오세요!로 바�
 
 회원정보 수정의 경우 로그인된 상태에서 들어가면 잘 작동되나, 로그인되지 않은 상태에서 들어가면 에러가 뜬다. 에러가 아닌, 로그인창이 뜰 수 있도록 바꾸어 봐야겠다.
 
++
+
+customform 적용하기
+
+a. accounts 폴더에 forms.py 파일을 만든다
+
+b. forms.py에 적절한 파일들을 import 받는다.
+
+```python
+# accounts > forms.py
+
+from django import forms
+from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth import get_user_model
+```
+
+c. class를 작성한다
+
+```python
+# accounts > forms.py
+
+class CustomUserChangeForm(UserChangeForm):
+    
+    class Meta:
+        model = get_user_model()
+        fields = ('email', 'first_name', 'last_name')
+```
+
+d. views.py의 form 명을 바꿔준다
+
+```python
+# accounts > views.py
+
+from .forms import CustomUserChangeForm
+
+# update 함수의 UserChangeForm 부분을 CustomUserChangeForm으로 바꿔주자
+```
+
+
+
+결과
+
+![image-20220412153626085](practice.assets/image-20220412153626085.png)
+
 
 
 

@@ -23,7 +23,7 @@ Django는 MTV로 이루어진 Web Framework다. MTV가 무엇의 약자이며 Dj
 
 `ans`
 
-`(a): .`
+`(a): articles`
 
 `(b): views`
 
@@ -42,7 +42,7 @@ Django 프로젝트는 기본적으로 render 할 html과 같은 template 파일
 
 `(b): TEMPLATES`
 
-`(c): STATIC_URL`
+`(c): STATICFILES_DIRS`
 
 
 
@@ -50,12 +50,12 @@ Django 프로젝트는 기본적으로 render 할 html과 같은 template 파일
 
 아래는 그림과 같이 Django에서 선언한 Model을 Database에 반영하는 과정에서 사용하는 명령어에 대한 설명이다. 각 설명에 해당하는 명령어를 작성하시오. (app 이름은 articles이다.)
 
-![image-20220419085045946](homework.assets/image-20220419085045946.png)
+![](homework.assets/image-20220419085045946.png)
 
-1) 마이그레이션 생성 `python manage.py makemigrations`
-2) 마이그레이션 DB 반영 여부 확인 `python manage.py showmigrations`
-3) 마이그레이션에 대응되는 SQL문 출력 `python manage.py sqlmigrate`
-4) 마이그레이션 파일의 내용을 DB에 최종 반영 `python manage.py migrate`
+1) 마이그레이션 생성 `python manage.py makemigrations`{articles}
+2) 마이그레이션 DB 반영 여부 확인 `python manage.py showmigrations articles `
+3) 마이그레이션에 대응되는 SQL문 출력 `python manage.py sqlmigrate articles <migration-name>` (name에는 0001과 같은 숫자만 써도 ㄱㅊ)
+4) 마이그레이션 파일의 내용을 DB에 최종 반영 `python manage.py migrate`{articles}
 
 
 
@@ -63,17 +63,38 @@ Django 프로젝트는 기본적으로 render 할 html과 같은 template 파일
 
 각 문항을 읽고 맞으면 T, 틀리면 F를 작성하시오.
 
-1) POST와 GET 방식은 의미론상의 차이이며 실제 동작 방식은 동일하다. `F`
-2) ModelForm과 Form Class의 핵심 차이는 Model의 정보를 알고 있는지의 여부이다. 
-3) AuthenticationForm은 User 모델과 관련된 정보를 이미 알고 있는 ModelForm으로
+1) POST와 GET 방식은 의미론상의 차이이며 실제 동작 방식은 동일하다. 
+    - `F`, 데이터전달 body의 유무. POST는 body, GET은 params
+
+1) ModelForm과 Form Class의 핵심 차이는 Model의 정보를 알고 있는지의 여부이다. 
+    - `T`
+    - 그냥 form을 쓸 땐 일일히 field를 지정
+    - modelform은 model이 갖고있는 field들 그냥 그대로 사용(물론 조절 가능)
+2) AuthenticationForm은 User 모델과 관련된 정보를 이미 알고 있는 ModelForm으로
     구성되어 있다.
-4) ModelForm을 사용할 때 Meta 클래스에 fields 관련 옵션은 반드시 작성해야 한다 `T`
+    - `F`
+    - 그냥 Form을 사용하고 있음
+    - 왜?
+3) ModelForm을 사용할 때 Meta 클래스에 fields 관련 옵션은 반드시 작성해야 한다 
+    - `T`
 
 
 
 ### media 파일 경로
 
 사용자가 업로드한 파일이 저장되는 위치를 Django 프로젝트 폴더(crud) 내부의 /uploaded_files 폴더로 지정하고자 한다. 이 때, settings.py에 작성해야 하는 설정 2가지를 작성하시오.
+
+```python
+# settings.py
+
+# 사용자가 업로드 한 파일을 보관할 폴더의 절대 파일 시스템 경로
+MEDIA_ROOT = BASE_DIR / 'pjt_name' / 'uploaded_files'
+
+# MEDIA_ROOT에서 제공되는 미디어 파일을 처리하는 url
+MEDIA_URL = '/media/'
+```
+
+
 
 
 
@@ -98,6 +119,10 @@ Django 프로젝트는 기본적으로 render 할 html과 같은 template 파일
 `ans`
 
 `(a): PROTECT`
+
+`restrict 쓰면 restricterror 발생`
+
+`restrice는? 쿼리셋을 삭제하려 했을 때, restrict로 보호받고있는 것 이외의 것들을 모두 삭제함`
 
 
 
@@ -125,4 +150,4 @@ follow 기능을 구현하기 위해 accounts app의 models.py에 아래와 같�
 
 `중개 테이블의 이름: accounts_user_followings`
 
-`컬럼 이름: article_id, user_id`
+`컬럼의 이름: from_user_id, to_user_id`

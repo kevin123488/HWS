@@ -35,7 +35,38 @@
     const cardsSection = document.querySelector('#cardsSection')
 
     function createCard(title, content) {
-      // 여기에 카드를 작성하시오.
+      // 우선 어떤 방식으로 div를 나눌 것인지 결정해야 한다
+      // 가장 큰 상자에는 col-4 속성을 부여, 명세와 같은 배치를 해준다
+      
+      const card1 = document.createElement('div')
+      // 공간을 만들었으니, 그 공간에 속성을 부여하자
+      card1.setAttribute('class', 'col-4')
+
+
+      const card2 = document.createElement('div')
+      card2.setAttribute('class', 'card m-1')
+      // 위의 공간에 이 공간을 집어넣자
+      card1.appendChild(card2)
+
+      const card3 = document.createElement('div')
+      card3.setAttribute('class', 'caed-body')
+      card2.appendChild(card3)
+
+
+      const card4 = document.createElement('div')
+      card4.setAttribute('class', 'card-title')
+      card4.innerText = title
+      card3.appendChild(card4)
+
+
+      const card5 = document.createElement('div')
+      card5.setAttribute('class', 'card-text')
+      card5.innerText = content
+      card3.appendChild(card5)
+
+      return card1
+
+
     }
 
     // 카드 생성

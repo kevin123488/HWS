@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Noto Sans KR', sans-serif;
+      color: rgb(38, 38, 38);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #50B8E7;
+    }
+
+    .buttonArea {
+      margin: 0 auto;
+      width: 80%;
+    }
+
+    .buttonRow {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      height: 80px;
+    }
+
+    .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 45%;
+      border: 1px solid #50B8E7;
+      cursor: pointer;
+    }
+
+    .clear {
+      margin-top: 10px;
+      outline: none;
+      background: none;
+      border: 1px solid #50B8E7;
+      width: 100px;
+      height: 50px;
+      cursor: pointer;
+      font-size: large;
+    }
+
+    .clear:hover {
+      background-color: #B9E2F5;
+    }
+
+    .type {
+      font-size: x-large;
+      font-weight: bold;
+    }
+
+    .selected {
+      background-color: #B9E2F5;
+    }
+
+    .red {
+      background-color: red;
+    }
+    .orange {
+      background-color: orange;
+    }
+    .yellow {
+      background-color: yellow;
+    }
+    .green {
+      background-color: green;
+    }
+    .blue {
+      background-color: blue;
+    }
+    .violet {
+      background-color: violet;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <h1>버튼 클릭하기</h1>
+      <section class="buttonArea">
+        <div class="buttonRow">
+          <div @click="changeColor" :class="message" class="btn">
+            <span class="type">1</span>
+          </div>
+          <div @click="changeColor1" :class="message1" class="btn">
+            <span class="type">2</span>
+          </div>
+        </div>
+        <div class="buttonRow">
+          <div @click="changeColor2" :class="message2" class="btn">
+            <span class="type">3</span>
+          </div>
+          <div @click="changeColor3" :class="message3" class="btn">
+            <span class="type">4</span>
+          </div>
+        </div>
+      </section>
+      <button @click="clearColor" class="clear">전체 해제</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+  <script>
+    const colorArr = ['red', 'orange', 'yellow', 'green', 'blue', 'violet']
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'',
+        message1:'',
+        message2:'',
+        message3:'',
+      },
+      methods: {
+        changeColor: function() {
+          this.message = _.sample(colorArr)
+        },
+        changeColor1: function() {
+          this.message1 = _.sample(colorArr)
+        },
+        changeColor2: function() {
+          this.message2 = _.sample(colorArr)
+        },
+        changeColor3: function() {
+          this.message3 = _.sample(colorArr)
+        },
+        clearColor: function() {
+          this.message = ''
+          this.message1 = ''
+          this.message2 = ''
+          this.message3 = ''
+        },
+      }
+
+    })
+  </script>
+</body>
+</html>

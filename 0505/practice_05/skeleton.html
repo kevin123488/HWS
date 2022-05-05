@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Noto Sans KR', sans-serif;
+      color: rgb(38, 38, 38);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #50B8E7;
+    }
+
+    .buttonArea {
+      margin: 0 auto;
+      width: 80%;
+    }
+
+    .buttonRow {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      height: 80px;
+    }
+
+    .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 45%;
+      border: 1px solid #50B8E7;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 10px;
+      outline: none;
+      background: none;
+      border: 1px solid #50B8E7;
+      width: 100px;
+      height: 50px;
+      cursor: pointer;
+      font-size: large;
+    }
+
+    .result:hover {
+      background-color: #B9E2F5;
+    }
+
+    .type {
+      font-size: x-large;
+      font-weight: bold;
+    }
+
+    .selected {
+      background-color: #B9E2F5;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <h1>MBTI 검사기</h1>
+      <section class="buttonArea">
+        <div class="buttonRow">
+          <div @click="e" :class="{ selected:typeE }" class="btn">
+            <span class="type">E</span>
+            <span>외향형</span>
+          </div>
+          <div @click="i" :class="{ selected:typeI }" class="btn">
+            <span class="type">I</span>
+            <span>내향형</span>
+          </div>
+        </div>
+        <div class="buttonRow">
+          <div @click="s" :class="{ selected:typeS }" class="btn">
+            <span class="type">S</span>
+            <span>감각형</span>
+          </div>
+          <div @click="n" :class="{ selected:typeN }" class="btn">
+            <span class="type">N</span>
+            <span>직관형</span>
+          </div>
+        </div>
+        <div class="buttonRow">
+          <div @click="t" :class="{ selected:typeT }" class="btn">
+            <span class="type">T</span>
+            <span>사고형</span>
+          </div>
+          <div @click="f" :class="{ selected:typeF }" class="btn">
+            <span class="type">F</span>
+            <span>감정형</span>
+          </div>
+        </div>
+        <div class="buttonRow">
+          <div @click="j" :class="{ selected:typeJ }" class="btn">
+            <span class="type">J</span>
+            <span>판단형</span>
+          </div>
+          <div @click="p" :class="{ selected:typeP }" class="btn">
+            <span class="type">P</span>
+            <span>인식형</span>
+          </div>
+        </div>
+      </section>
+      <button @click="goUrl" class="result">
+        <!-- <a th:href="@{https://www.16personalities.com/ko/성격유형-{mbti}(mbti=${mbti})}"> -->
+        <!-- <a href="https://www.16personalities.com/ko/"> -->
+            결과 보기
+        <!-- </a> -->
+      </button>
+    </div>
+  </div>
+  <div id="heretoputin"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        mbti: '',
+        typeE: false,
+        typeI: false,
+        typeN: false,
+        typeS: false,
+        typeT: false,
+        typeF: false,
+        typeP: false,
+        typeJ: false,
+      },
+      methods: {
+        e: function() {
+          if (this.typeI === false) {
+            this.typeE = true
+          } else if (this.typeI === true) {
+            this.typeI = false
+            this.typeE = true
+          }
+        },
+        i: function() {
+          if (this.typeE === false) {
+            this.typeI = true
+          } else if (this.typeE === true) {
+            this.typeE = false
+            this.typeI = true
+          }
+        },
+        n: function() {
+          if (this.typeS === false) {
+            this.typeN = true
+          } else if (this.typeS === true) {
+            this.typeS = false
+            this.typeN = true
+          }
+        },
+        s: function() {
+          if (this.typeN === false) {
+            this.typeS = true
+          } else if (this.typeN === true) {
+            this.typeN = false
+            this.typeS = true
+          }
+        },
+        t: function() {
+          if (this.typeF === false) {
+            this.typeT = true
+          } else if (this.typeF === true) {
+            this.typeF = false
+            this.typeT = true
+          }
+        },
+        f: function() {
+          if (this.typeT === false) {
+            this.typeF = true
+          } else if (this.typeT === true) {
+            this.typeT = false
+            this.typeF = true
+          }
+        },
+        p: function() {
+          if (this.typeJ === false) {
+            this.typeP = true
+          } else if (this.typeJ === true) {
+            this.typeJ = false
+            this.typeP = true
+          }
+        },
+        j: function() {
+          if (this.typeP === false) {
+            this.typeJ = true
+          } else if (this.typeP === true) {
+            this.typeP = false
+            this.typeJ = true
+          }
+        },
+        goUrl: function(event) {
+          const arr = [this.typeE, this.typeI, this.typeN, this.typeS, this.typeT, this.typeF, this.typeP, this.typeJ]
+          const findUrl = []
+          for (const tyPe of arr) {
+            if (tyPe === true) {
+              findUrl.push(tyPe)
+            }
+          }
+          if (findUrl.length === 4) {
+
+            if (this.typeI === true && this.typeN === true && this.typeT === true && this.typeP === true) {
+              mbti = 'intp'
+            } else if (this.typeI === true && this.typeN === true && this.typeT === true && this.typeJ === true) {
+              mbti = 'intj'
+            } else if (this.typeI === true && this.typeN === true && this.typeF === true && this.typeP === true) {
+              mbti = 'infp'
+            } else if (this.typeI === true && this.typeN === true && this.typeF === true && this.typeJ === true) {
+              mbti = 'infj'
+            } else if (this.typeI === true && this.typeS === true && this.typeT === true && this.typeP === true) {
+              mbti = 'istp'
+            } else if (this.typeI === true && this.typeS === true && this.typeT === true && this.typeJ === true) {
+              mbti = 'istj'
+            }else if (this.typeI === true && this.typeS === true && this.typeF === true && this.typeP === true) {
+              mbti = 'isfp'
+            } else if (this.typeI === true && this.typeS === true && this.typeF === true && this.typeJ === true) {
+              mbti = 'isfj'
+            } else if (this.typeE === true && this.typeN === true && this.typeT === true && this.typeP === true) {
+              mbti = 'entp'
+            } else if (this.typeE === true && this.typeN === true && this.typeT === true && this.typeJ === true) {
+              mbti = 'entj'
+            } else if (this.typeE === true && this.typeN === true && this.typeF === true && this.typeP === true) {
+              mbti = 'enfp'
+            } else if (this.typeE === true && this.typeN === true && this.typeF === true && this.typeJ === true) {
+              mbti = 'enfj'
+            } else if (this.typeE === true && this.typeS === true && this.typeT === true && this.typeP === true) {
+              mbti = 'estp'
+            } else if (this.typeE === true && this.typeS === true && this.typeT === true && this.typeJ === true) {
+              mbti = 'estj'
+            } else if (this.typeE === true && this.typeS === true && this.typeF === true && this.typeP === true) {
+              mbti = 'esfp'
+            } else if (this.typeE === true && this.typeS === true && this.typeF === true && this.typeJ === true) {
+              mbti = 'esfj'
+            }
+            console.log(mbti)
+            const ret = window.open(`https://www.16personalities.com/ko/성격유형-${mbti}`)
+            // event.preventDefault()
+            // const hereToPutIn = document.querySelector('#heretoputin')
+            // hereToPutIn.innerText = '왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고왜 안되냐고'
+
+            // event.preventDefault()
+
+
+          } else {
+            event.preventDefault()
+            alert('유형을 모두 선택해주세요')
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

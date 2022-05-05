@@ -11,19 +11,40 @@
 <body>
   <div id="app">
     <h2>점심메뉴</h2>
-    <button>Pick One</button>
-    <p></p>
+    <button @click="lunchPick">Pick One</button>
+    <p>{{ message }}</p>
     <hr>
 
     <h2>로또</h2>
-    <button>Get Lucky Numbers</button>
-    <p></p>
+    <button @click="getLotto">Get Lucky Numbers</button>
+    <p>{{ number }}</p>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
   <script>
-
+    const arrLunch = ['국밥', '햄버거', '치킨', '김치찌개', '삼계탕']
+    const lottoArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                      11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                      21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+                      31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+                      41, 42, 43, 44, 45]
+    
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: "점심식사로 뭐가 좋을까?",
+        number: "로또 행운의 번호가 도착하였습니다",
+      },
+      methods: {
+        lunchPick: function() {
+          this.message = _.sample(arrLunch)
+        },
+        getLotto: function() {
+          this.number = _.sampleSize(lottoArr, 6).join(' ')
+        }
+      },
+    })
   </script>
 </body>
 

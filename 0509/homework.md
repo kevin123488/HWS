@@ -36,4 +36,10 @@ Web API 호출 등 Vanilla JS에서의 기능을 사용할 수 없다. `F`
   </script>
   ```
 
-  `ans: created`
+  ```vue
+  // ans
+  created!
+  mounted!
+  updated!
+  ```
+

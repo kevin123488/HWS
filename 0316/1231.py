@@ -14,7 +14,7 @@ sys.stdin = open('1231.txt')
 for tc in range(1, 11):
     N = int(input()) # 정점의 개수
     arr = [list(input().split()) for _ in range(N)]
-    
+
     # tree 생성
     tree = [[0, 0] for _ in range(N+1)] # 노드의 개수보다 1 많게 해야됨 # 부모의 값과 인덱스를 맞추고, [0, 0] 안엔 자식 1, 2 ㄱ
     # 인덱스 맞춰줘야 되므로(0이아닌 1부터 시작)

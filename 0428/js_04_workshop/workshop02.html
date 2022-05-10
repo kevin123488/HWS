@@ -23,11 +23,25 @@
       span#output에서 해당 단어를 '**' 로 바꿔 출력하도록 filterMessage 함수를 완성하시오.
     */
     const badWords = ['바보', '멍청', '메롱',]
-    const userInput = document.querySelector('#userInput')
-    const output = document.querySelector('#output')
+    const userInput = document.querySelector('#userInput') //입력 창 정보
+    const output = document.querySelector('#output') //출력해주는 창 정보
+
+    // function filterMessage(event) {
+    //   // badWords에 포함된 단어가 입력될 경우, '**'으로 변환하여 output에 출력
+    //   let realInput = userInput.value.split(' ')
+    //   for (let a of realInput) {
+    //     if (a === '바보' || a === '멍청' || a === '메롱') {
+    //       realInput = realInput.replace(a, '**')
+    //     }
+    //     output.innerText = realInput
+    //   }
+    // }
 
     function filterMessage(event) {
-      // badWords에 포함된 단어가 입력될 경우, '**'으로 변환하여 output에 출력 
+      let filteredInput = userInput.value
+      for (let word of badWords) {
+        filteredInput = filteredInput.replace(word, '**')
+      }
       output.innerText = filteredInput
     }
 

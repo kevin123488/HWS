@@ -1,6 +1,8 @@
 ## 0426 WS
 
 ```javascript
+// 내 답변
+
 function deepCopy(arr) {
       let a = []
       for (let b of arr) {
@@ -23,6 +25,20 @@ function isPalindrome(str) {
     } else {
         return false
     }
+}
+```
+
+
+
+```javascript
+// 교수님 답변
+
+function isPalindrome(str) {
+    const trimStr = str.replaceAll(' ', '')
+    const arr = trimStr.split('')
+    arr.reverse()
+    const reversedStr = arr.join('')
+    return trimStr === reversedStr
 }
 ```
 

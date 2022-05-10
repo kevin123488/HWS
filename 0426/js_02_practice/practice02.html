@@ -22,6 +22,54 @@
       { name: 'Robert', age: 27, isMarried: false, balance: 400, },
       { name: 'Tom', age: 35, isMarried: true, balance: 500, },
     ]
+    
+    // ans 1
+    users.forEach((name) => {
+      console.log(name.name)
+    })
+
+    users.forEach(function (user) {
+      console.log(user.name)
+    })
+
+    // ans 2
+    // const marriedUsers = users.filter((name) => {
+    //   return name.isMarried === true
+    // })
+
+    const marriedUsers = users.filter(function (user) { // filter는 반환값이 true인 녀석들만 모은 새로운 배열을 만든다
+      return user.isMarried
+    })
+
+    // ans 3
+    // const tom = users.find((name) => {
+    //   return name.name === 'Tom'
+    // }
+    // )
+
+    const tom = users.find(function (user) {
+      return user.name === 'TOM'
+    })
+
+    // ans 4
+    // const newUsers = users.map((name) => {
+    //   return users.isAlive = true
+    // })
+
+    const newUsers = users.map(function(user) {
+      user.isAlive = true
+      return user
+    })
+
+    // ans 5
+    // const totalBalance = users.reduce((sum, balance) => {
+    //   return sum + balance.balance
+    // }, 0)
+
+    const totalBalance = users.reduce(function (acc, user) {
+      return acc + user.balance
+    }, 0)
+ 
   </script>
 </body>
 

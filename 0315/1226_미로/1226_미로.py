@@ -13,7 +13,7 @@ def DFS(x, y):
             if data[nx][ny] == 3:
                 visited[nx][ny] = 3
                 return 1
-            if DFS(nx, ny):
+            elif DFS(nx, ny):
                 return 1
     return 0
 

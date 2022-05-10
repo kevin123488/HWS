@@ -9,9 +9,9 @@
 </head>
 
 <body>
-  <form action="/todos/">
-    <input type="text">
-    <button>Add</button>
+  <form action="/todo/">
+    <input id="textInput" type="text">
+    <button id="thisisbutton">Add</button>
   </form>
   <ul></ul>
 
@@ -25,6 +25,38 @@
       (선택) 빈 값인 데이터는 입력을 방지한다.
       빈 값이면 알림창을 띄워 값을 입력하도록 안내한다.
     */
+    
+    // submit 이벤트 발생 시 input에 작성된 값이 todo로 추가됨 -> ~ 하면 ~ 한다 -> addEventListener 사용하자
+    // const myInput = document.querySelector('#textInput')
+
+    // myInput.addEventListener('submit', function(event) {
+    //   const todo = document.querySelector('ul')
+    //   const todotodo = document.createElement('li')
+    //   todotodo.innerText = event.target.value
+    // })
+
+      const form = document.querySelector('form')
+
+      function addTodo () {
+        event.preventDefault() // /todo/ 페이지로 넘어가는걸 막음
+        const input = document.querySelector('input')
+        const text = input.value
+
+        const li = document.createElement('li')
+        li.innerText = text
+
+        const ul = document.querySelector('ul')
+        ul.appendChild(li)
+        input.value = ''
+      }
+
+      // if (input.value !== '') {
+        form.addEventListener('submit', addTodo)
+      // }
+
+    // const myTextInput = document.querySelector('input')
+
+    // myTextInput.addEventListener('submit')
 
   </script>
 </body>

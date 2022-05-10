@@ -4,7 +4,7 @@
 
 Python은 객체 지향 프로그래밍 언어이다. Python에서 기본적으로 정의되어 있는 클래스를 최소 5가지 이상 작성하시오.
 
-- 파이썬에서 Int, Float등은 그냥 실행했을때, <class ???> 의 형태로 나오는 결과물들. 모두 클래스로 되어이싿.
+- 파이썬에서 Int, Float등은 그냥 실행했을때, <class ???> 의 형태로 나오는 결과물들. 모두 클래스로 되어있다.
 
   ```python
   int, float, complex, str, list, dict, map, zip .....

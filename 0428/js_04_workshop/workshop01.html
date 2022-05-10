@@ -3,7 +3,7 @@
 
 <head>
   <title>Document</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./workshop01.css">
 </head>
 
 <body>
@@ -26,7 +26,33 @@
       2. li#whiteButton 클릭시 background-color는 white, color는 black으로 변경
       3. li#navyButton 클릭시 background-color는 navy, color는 white로 변경
     */
+    const a = document.querySelector('li#grayButton')
+    const body = document.body
+    const func = function (event) {
+      body.style.color = 'white'
+      body.style.backgroundColor = 'gray'
 
+    }
+    a.addEventListener('click', func)
+
+
+    const b = document.querySelector('li#whiteButton')
+    const func2 = function (event) {
+      body.style.color = 'gray'
+      body.style.backgroundColor = 'white'
+
+    }
+    b.addEventListener('click', func2)
+
+
+    const c = document.querySelector('li#navyButton')
+    const func3 = function (event) {
+      body.style.color = 'white'
+      body.style.backgroundColor = 'navy'
+
+    }
+    c.addEventListener('click', func3)
+    
   </script>
 </body>
 

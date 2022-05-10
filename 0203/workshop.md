@@ -24,6 +24,13 @@ __(a)__와 __(b)__에 들어갈 말과 __(b)__ 로 변경한 코드를 작성하
 (c): <img src="../image/my_photo.png" alt="ssafy">
 ```
 
+```python
+# 교수님 답변
+(a): 절대경로
+(b): 상대경로
+(c): <img src="../image/my_photo.png" alt="ssafy">
+```
+
 
 
 
@@ -39,6 +46,13 @@ __(a)__와 __(b)__에 들어갈 말과 __(b)__ 로 변경한 코드를 작성하
   <img src="../image/my_photo.png" alt="ssafy">
 </a>
 ```
+
+```python
+# 교수님 답변
+위와 같음. 이런 경우엔 '절대경로'로 url 만들어야 제대로 로딩됨
+```
+
+
 
 
 
@@ -102,5 +116,17 @@ nth-of-type(n) -> 부모 엘리먼트의 특정 자식 엘리먼트중 n번째
 nth-child(n)의 경우 ssafy라는 아이디를 가진 div의 모든 자식 엘리먼트중 2번째인 '첫번째 단락'에 영향을 주었음.
 
 nth-of-type(n)의 경우 ssafy라는 아이디를 가진 div 하의 p 요소중 2번째인 '두번째 단락'에 영향을 주었음.
+```
+
+```python
+# 교수님 답변
+1. element:nth-child(n)
+-> 부모의 n번째 자식을 찾고, 해당 엘리먼트를 선택
+-> 다른 element 모두 자식으로 선택해서 그 자식들 중 n번째를 찾는다
+-> n번째 자식이 선택한 element가 아니라면? 스타일이 적용되지 않음
+
+2. element:nth-of-type(n)
+-> 부모의 n번째에 해당하는 element 선택
+-> 다른 element들이 있어도 무시 조지고 오로지 : 앞에 적혀있는 element와 같은 element만 조짐
 ```
 

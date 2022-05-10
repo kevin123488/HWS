@@ -9,6 +9,8 @@
 
 -  아래의 Django 공식 github에서 User 모델이 정의된 코드를 찾아 작성하시오.
   https://github.com/django/django
+  
+- 모델은 class
 
 ```python
 class User(AbstractUser):
@@ -22,7 +24,7 @@ class User(AbstractUser):
         swappable = "AUTH_USER_MODEL"
 ```
 
-
+User class에 직접적으로 field를 지정해둔것이 아닌 상속의 형태로 만들어 둔 이유는? -> 
 
 
 
@@ -49,3 +51,14 @@ Django는 사용자가 로그인에 성공할 경우 (a) 테이블에 세션 데
 # (b): ['_auth_user_id', '_auth_user_backend', '_auth_user_hash']
 ```
 
+```python
+# 교수님 답변
+# (a): django_session
+# (b): sessionid
+```
+
+세션: 연결관계를 지속하는 기간을 말하는 섬띵
+
+서버와 클라이언트는 기본적으로 연결되어있지 않음. 특정한 기간동안만 그 연결을 확인할 수 있는데, 그 기간과 관계되어 있는 것이 session
+
+**연결되어있는 상태**

@@ -13,7 +13,7 @@ for tc in range(1, 11):
     for i in range(len(find)):
         for j in range(len(string)): # find의 첫 글자에 대해 j를 쭉 순회. 만약 같으면? find의 길이만큼 슬라이싱한 후 비교. 같으면? count += 1
             if find[i] == string[j]:
-                if j+len(find) <= len(string):
+                if j+len(find) <= len(string): # 인덱싱 에러 방지, 범위 설정해줌
                     if find == string[j:j+len(find)]:
                         count += 1
     print(f'#{tc} {count}')

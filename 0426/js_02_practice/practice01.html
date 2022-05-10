@@ -11,6 +11,13 @@
     // 1. 해당 코드를 template string 을 활용하여 리팩토링하시오.
     const name = 'Tom'
     console.log('Hi, my name is' + name)
+    console.log(`Hi, my name is' + ${name}`)
+
+    // ans
+    const firstName = 'Tom'
+    const hello = 'Hi, my name is'
+    const helloTo = `${hello} ${firstName}`
+    console.log(helloTo)
 
     // 2. 해당 코드를 arrow function 으로 리팩토링하시오.
     function add(x, y) {
@@ -21,6 +28,12 @@
       return x ** 2
     }
 
+    // ans
+    const add = (x, y) => { return x + y}
+    const add = (x, y) => x + y
+    const square = x => { return x ** 2}
+    const square = x => x ** 2
+
     // 3. 해당 코드의 메서드 introduce 를 function 키워드 없이 리팩토링하시오.
     const tom = {
       name: 'Tom',
@@ -29,11 +42,24 @@
       }
     }
 
-    // 4. 해당 코드를 key, value를 한번씩만 작성하도록 리팩토링하시오.
-    const url = 'https://test.com'
-    const data = { message: 'Hello World!' }
+    // ans
+    const tom2 = {
+      name:'Tom',
+      introduce() {
+        console.log('Hi, my name is' + this.name)
+      }
+    }
 
-    const request = { url: url, data: data }
+    // 4. 해당 코드를 key, value를 한번씩만 작성하도록 리팩토링하시오.
+    // const url = 'https://test.com'
+    // const data = { message: 'Hello World!' }
+
+    // const request = { url: url, data: data }
+
+    // ans
+    const url = 'https://test.com'
+    const data = { message: 'Hello world!' }
+    const request = { url, data }
 
   </script>
 </body>

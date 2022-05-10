@@ -19,12 +19,23 @@
   <button>Get dog</button>
 
   <!-- axios CDN을 삽입한다. -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <script>
-    const API_URI = 'https://dog.ceo/api/breeds/image/random'
+    const API_URL = 'https://dog.ceo/api/breeds/image/random'
+
+    const dogPic = document.querySelector('img')
 
     function getDog() {
       // axios를 사용하여 API_URI로 GET 요청을 보낸다.
+      axios.get(API_URL)
+        .then(function(res){
+          // console.log(res.data.message)
+          const dogUrl = res.data.message
+          dogPic.src = dogUrl
+
+        })
+      
 
       // .then 메서드를 통해 요청이 성공적인 경우의 콜백함수를 정의한다.
 

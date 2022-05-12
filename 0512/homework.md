@@ -25,7 +25,7 @@
 
 ![image-20220512084802576](homework.assets/image-20220512084802576.png)
 
-(a): { mapGatters }
+(a): { mapGetters, mapStatem mapActions }
 
 (b): 'vuex'
 
